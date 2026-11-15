@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mi Vida en Check</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=DM+Sans:wght@400;500;700&family=Special+Elite&display=swap"><style id="st">
+:root{--ink:#14273A;--sea:#0B3C5D;--sun:#F28C38;--coral:#E8505B;--sand:#F6EAD4;--paper:#FBF5EA;--teal:#1B998B;--soft:#6B7280;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;--type:"Special Elite","Courier New",monospace}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
+body{min-height:100vh;overflow-x:hidden}
+#app{max-width:560px;margin:0 auto;padding:0 0 110px}
+.wrap{padding:0 16px}
+.sky{position:relative;height:330px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0B2545 0%,#3C3B6E 35%,#C8576B 65%,#F6A04D 85%,#F8C77E 100%)}
+.sky .sunc{position:absolute;left:50%;bottom:62px;width:150px;height:150px;margin-left:-75px;border-radius:50%;background:radial-gradient(circle,#FFE6A7,#FFB55A 60%,#ff9a3c00 72%);animation:glow 6s ease-in-out infinite}
+@keyframes glow{50%{transform:scale(1.06)}}
+.sky .stars{position:absolute;inset:0 0 50% 0;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#fff9 1px,transparent 1.5px);background-size:60px 50px,37px 41px;background-position:0 0,20px 15px;opacity:.5}
+.sky svg.land{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+.plane{position:absolute;top:96px;left:-60px;animation:fly 14s linear infinite}
+@keyframes fly{0%{transform:translate(0,30px) rotate(-6deg)}100%{transform:translate(660px,-40px) rotate(-6deg)}}
+.sky .hd{position:absolute;top:18px;left:18px;right:18px;z-index:2}
+.sky .hi{font-size:13px;opacity:.85;font-weight:500}
+.sky h1{font-family:var(--serif);font-size:36px;line-height:1.02;margin:4px 0 0;font-weight:800;text-shadow:0 2px 14px #0005}
+.sky h1 em{font-style:italic;color:#FFD08A}
+.pass{margin:-58px 16px 0;position:relative;z-index:3;background:linear-gradient(135deg,#123B5E,#0B2545);color:#F6EAD4;border-radius:20px;padding:16px;box-shadow:0 18px 40px -16px #0B2545cc}
+.pass:before{content:"";position:absolute;inset:6px;border:1px dashed #F6EAD455;border-radius:15px;pointer-events:none}
+.pass .top{display:flex;justify-content:space-between;align-items:center;font-family:var(--type);font-size:12px;letter-spacing:2px;opacity:.85}
+.pass .nm{font-family:var(--serif);font-size:24px;margin:8px 0 2px;color:#fff}
+.pass .dr{font-size:13.5px;opacity:.9}
+.pass .ed{background:#F6EAD41a;border:1px solid #F6EAD455;color:#F6EAD4;border-radius:10px;padding:5px 9px;font:500 12px var(--sans)}
+.route{margin-top:14px;position:relative}
+.route svg{width:100%;height:auto;display:block}
+.route .lb{display:flex;justify-content:space-between;font-size:12.5px;margin-top:4px}
+.rank{display:inline-block;margin-top:8px;font-family:var(--type);font-size:12px;letter-spacing:1.5px;color:#0B2545;background:#FFD08A;border-radius:6px;padding:3px 8px}
+h2{font-family:var(--serif);font-size:25px;margin:28px 0 12px;font-weight:800}
+h2 small{display:block;font-family:var(--sans);font-size:13px;color:var(--soft);font-weight:500;margin-top:2px}
+.quote{position:relative;margin-top:18px;background:var(--sand);border-radius:20px;padding:20px 18px 16px;overflow:hidden}
+.quote:before{content:"“";position:absolute;top:-28px;left:8px;font-family:var(--serif);font-size:130px;color:#F28C3855;line-height:1}
+.quote .k{font-family:var(--type);font-size:11.5px;letter-spacing:2px;color:#B4552B}
+.quote p{position:relative;font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.35;margin:8px 0 10px}
+.quote .a{font-weight:700;font-size:13.5px}
+.quote .a span{color:var(--soft);font-weight:500}
+.dest{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dc{position:relative;border-radius:18px;overflow:hidden;color:#fff;min-height:150px;cursor:pointer;box-shadow:0 10px 24px -14px #0B2545}
+.dc:last-child{grid-column:span 2;min-height:160px}
+.dc svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+.dc .tx{position:relative;z-index:1;padding:10px 12px}
+.dc .n{font-family:var(--type);font-size:11px;letter-spacing:1.5px;opacity:.9}
+.dc .p{font-family:var(--serif);font-size:19px;font-weight:800;line-height:1.05;margin-top:2px;text-shadow:0 1px 8px #0006}
+.dc .pg{position:absolute;z-index:1;left:10px;right:10px;bottom:10px;font-size:11.5px;font-weight:700}
+.dc .pg i{display:block;height:5px;border-radius:5px;background:#ffffff55;margin-top:4px;overflow:hidden}
+.dc .pg i b{display:block;height:100%;background:#fff;border-radius:5px}
+.dc .ok{position:absolute;z-index:2;right:8px;top:8px}
+.stamps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:var(--sand);border-radius:20px;padding:14px;background-image:repeating-linear-gradient(0deg,transparent 0 27px,#14273A0d 27px 28px)}
+.stp{aspect-ratio:1;border-radius:50%;border:2.5px dashed;display:grid;place-items:center;text-align:center;padding:8px;font-family:var(--type);transform:rotate(var(--r));opacity:0;animation:inkin .5s forwards;position:relative;cursor:pointer}
+.stp.sq{border-radius:14px}
+@keyframes inkin{from{opacity:0;transform:rotate(var(--r)) scale(1.6)}to{opacity:.92;transform:rotate(var(--r)) scale(1)}}
+.stp .c{font-size:9.5px;letter-spacing:1px;line-height:1.15}
+.stp .ic{margin:2px 0}
+.stp .d{font-size:10.5px;font-weight:700}
+.empty{text-align:center;padding:24px 16px;border-radius:20px;background:var(--sand)}
+.empty p{color:#4b5563}
+.log{border-left:3px dotted #14273A44;margin-left:10px;padding-left:16px}
+.li{position:relative;margin-bottom:14px;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 6px 18px -12px #0B2545aa;opacity:0;transform:translateY(10px);animation:up .5s forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.li:before{content:"";position:absolute;left:-25px;top:16px;width:14px;height:14px;border-radius:50%;background:var(--c);border:3px solid var(--paper)}
+.li .dt{font-family:var(--type);font-size:12px;color:var(--c)}
+.li p{margin:3px 0 0;font-weight:700;line-height:1.3}
+.li .pl{font-size:12.5px;color:var(--soft);margin-top:3px}
+.note{margin-top:8px;padding:8px 10px;background:var(--paper);border-radius:10px;font-family:var(--serif);font-style:italic;font-size:14.5px;color:#374151}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;scrollbar-width:none;position:sticky;top:0;z-index:5;background:linear-gradient(var(--paper) 80%,#FBF5EA00)}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:0;border-radius:99px;padding:9px 13px;font:700 13px var(--sans);background:#fff;color:var(--ink);box-shadow:0 3px 10px -6px #0B254588}
+.chip.on{color:#fff}
+.dh{position:relative;border-radius:22px;overflow:hidden;color:#fff;min-height:210px;margin:0 16px 14px}
+.dh svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto}
+.dh .tx{position:relative;z-index:1;padding:16px}
+.dh .n{font-family:var(--type);font-size:12px;letter-spacing:2px;opacity:.9}
+.dh h3{font-family:var(--serif);font-size:34px;line-height:1;margin:4px 0 8px;font-weight:800;text-shadow:0 2px 12px #0006}
+.dh p{margin:0;font-size:14px;line-height:1.4;max-width:92%;text-shadow:0 1px 6px #0008}
+.dh .bar{position:absolute;z-index:1;left:16px;right:16px;bottom:14px;font-size:12px;font-weight:700}
+.dh .bar i{display:block;height:6px;border-radius:6px;background:#ffffff4d;margin-top:5px;overflow:hidden}
+.dh .bar i b{display:block;height:100%;background:#fff}
+.sq2{margin:0 16px 14px;background:var(--sand);border-radius:18px;padding:14px 16px}
+.sq2 .k{font-family:var(--type);font-size:11px;letter-spacing:2px;color:#B4552B}
+.sq2 p{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.35;margin:6px 0 4px}
+.sq2 .a{font-size:12.5px;font-weight:700}
+.g{margin:0 16px 10px;background:#fff;border-radius:18px;box-shadow:0 6px 18px -12px #0B2545aa;overflow:hidden}
+.gh{display:flex;gap:12px;align-items:flex-start;padding:14px;cursor:pointer}
+.num{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--sans);color:#fff}
+.gt{flex:1;font-weight:700;line-height:1.3;padding-top:7px}
+.g.done .gt{color:var(--soft)}
+.chev{flex:none;transition:transform .3s;padding-top:7px;color:var(--soft)}
+.g.open .chev{transform:rotate(180deg)}
+.gb{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.g.open .gb{max-height:900px}
+.gi{padding:0 14px 16px}
+.crit{background:#FFF1DC;border-left:4px solid var(--sun);border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:14.5px;font-weight:500;line-height:1.35}
+.crit b{display:block;font-family:var(--type);font-weight:400;font-size:11.5px;letter-spacing:1.5px;color:#B4552B;margin-bottom:3px}
+.lbl{font-family:var(--type);font-size:11.5px;letter-spacing:1.5px;color:var(--soft);margin:4px 0 6px}
+.ex{margin:0 0 12px;padding:0;list-style:none}
+.ex li{position:relative;padding:9px 10px 9px 32px;margin-bottom:6px;background:var(--paper);border-radius:12px;font-size:14.5px;line-height:1.35}
+.ex li:before{content:"✈";position:absolute;left:10px;top:9px;font-size:13px;color:var(--sun)}
+.cq{padding:12px 14px;border-radius:14px;color:#fff;font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.35;margin-bottom:12px}
+.btn{border:0;border-radius:14px;padding:13px 16px;font:700 15px var(--sans);cursor:pointer;color:#fff;width:100%;background:var(--sea)}
+.btn.sun{background:linear-gradient(135deg,#F28C38,#E8505B)}
+.btn.gh2{background:#14273A0d;color:var(--ink)}
+.row{display:flex;gap:8px}
+.donebox{background:#E8F6F3;border-radius:12px;padding:10px 12px;margin-bottom:10px;font-size:14px}
+.donebox b{color:#127A6E;font-family:var(--type);font-weight:400}
+nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:20;display:flex;gap:4px;background:#0B2545f2;backdrop-filter:blur(10px);padding:6px;border-radius:99px;box-shadow:0 14px 30px -10px #0B2545aa}
+nav button{border:0;background:none;color:#F6EAD4aa;font:700 12px var(--sans);padding:8px 14px;border-radius:99px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:86px}
+nav button.on{background:linear-gradient(135deg,#F28C38,#E8505B);color:#fff}
+nav button span{font-size:17px;line-height:1}
+.ov{position:fixed;inset:0;z-index:50;background:#0B2545aa;backdrop-filter:blur(5px);display:flex;align-items:flex-end;justify-content:center;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+.sheet{width:100%;max-width:560px;background:var(--paper);border-radius:26px 26px 0 0;padding:22px 18px 28px;animation:rise .45s cubic-bezier(.2,.9,.3,1.1);max-height:92vh;overflow:auto}
+@keyframes rise{from{transform:translateY(100%)}}
+.calm{text-align:center;padding:4px 4px 14px}
+.calm h3{font-family:var(--serif);font-size:26px;margin:8px 0 6px}
+.calm p{margin:0;font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.45;color:#374151}
+.calm .a{font-family:var(--sans);font-style:normal;font-weight:700;font-size:13px;margin-top:6px;color:var(--ink)}
+.calm .breath{font-family:var(--type);font-size:11px;color:var(--soft);margin-top:10px;letter-spacing:2px}
+textarea,input{width:100%;border-radius:14px;border:2px solid #14273A1f;padding:12px;font:15px var(--sans);background:#fff;color:var(--ink);outline:none}
+textarea{min-height:92px;resize:vertical}
+textarea:focus,input:focus{border-color:var(--sun)}
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;background:#0B2545;color:#F6EAD4;padding:11px 18px;border-radius:99px;font-weight:700;font-size:14px;box-shadow:0 10px 30px -10px #000a;animation:tin .4s, tout .4s 3.2s forwards;white-space:nowrap}
+@keyframes tin{from{opacity:0;transform:translate(-50%,-20px)}}
+@keyframes tout{to{opacity:0;transform:translate(-50%,-20px)}}
+.slam{position:fixed;inset:0;z-index:58;display:grid;place-items:center;pointer-events:none;background:#0B254566;animation:sf 1.7s forwards}
+.slam .big{width:230px;height:230px;border-radius:50%;border:6px double;display:grid;place-items:center;text-align:center;font-family:var(--type);background:#FBF5EAee;animation:slam .55s cubic-bezier(.3,1.6,.5,1)}
+.slam .big b{display:block;font-size:30px;letter-spacing:3px}
+.slam .big span{display:block;font-size:13px;letter-spacing:1.5px;margin-top:4px}
+@keyframes slam{from{transform:scale(2.4) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(-12deg);opacity:1}}
+@keyframes sf{0%,82%{opacity:1}100%{opacity:0}}
+.cb{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cb .lab{width:112px;font-size:13px;font-weight:700}
+.cb .tr{flex:1;height:10px;background:#14273A12;border-radius:9px;overflow:hidden}
+.cb .tr i{display:block;height:100%;border-radius:9px}
+.cb .v{width:44px;text-align:right;font-size:13px;color:var(--soft)}
+.card{background:#fff;border-radius:18px;padding:16px;box-shadow:0 6px 18px -12px #0B2545aa}
+.rep{background:#fff;border-radius:16px;padding:12px 14px;margin-bottom:10px;box-shadow:0 6px 18px -12px #0B2545aa}
+.rep .t{font-family:var(--type);font-size:12px;color:var(--soft)}
+.rep .q{font-weight:700;margin:3px 0}
+.saving{position:fixed;inset:0;z-index:70;display:grid;place-items:center;background:#FBF5EAee;font-family:var(--serif);font-size:21px}
+.saving div{text-align:center}
+.saving .pl{font-size:40px;display:inline-block;animation:bob 1s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-8deg)}}
+</style></head><body><div id="app"></div><script id="state" type="application/json">{"done":{},"updatedAt":0,"last":null}</script><script id="app-js">
+(function(){
+const STYLE=document.getElementById('st').textContent;
+const APPJS=document.getElementById('app-js').textContent;
+const SC='scr'+'ipt';
+const CATS=[
+{id:'cuerpo',name:'Cuerpo',emo:'🔥',goals:[
+['Tomarme una foto de "antes" y otra 6 meses después con un cambio visible.',['Misma luz, mismo lugar, mismo ángulo. Hoy mismo.','Pon un recordatorio en el calendario para dentro de 6 meses.'],'Nadie va a venir a construir tu cuerpo por ti. Es tu trabajo, solo tuyo.','Tienes las dos fotos y la diferencia se nota sin explicarla.'],
+['Correr 10 km sin parar.',['Inscríbete a una carrera 10K y págala: así no te echas para atrás.','Sigue un plan de 8 a 10 semanas, 3 salidas por semana.'],'El cuerpo aguanta casi todo. Es la mente la que se rinde primero.','Completaste 10 km seguidos sin caminar.'],
+['Hacerme un chequeo médico completo este año.',['Pide cita de medicina general por tu EPS y solicita exámenes de sangre.','Incluye presión arterial y odontología. Guarda los resultados.'],'Ignorar tu salud no la mejora. Deja de aplazarlo y pide la cita.','Te hiciste los exámenes y un médico ya los revisó contigo.'],
+['Comer limpio 30 días seguidos.',['Verdura en almuerzo y cena; cero gaseosa y cero comida rápida.','Marca cada día cumplido en el calendario del celular.'],'No puedes entrenar lo suficiente para compensar lo que comes mal.','Tienes 30 días seguidos marcados. Si fallas uno, vuelves a empezar.'],
+['Dormir 7 a 8 horas durante 30 noches seguidas.',['Alarma para acostarte, no solo para levantarte.','El celular se carga fuera del cuarto.'],'Dormir bien no es flojera. Es la ventaja que casi nadie usa.','Llevas 30 noches seguidas con 7 horas o más.'],
+['Entrenar 3 veces por semana durante 6 meses sin fallar una semana.',['Días fijos: lunes, miércoles y viernes, como una cita que no se cancela.','Anota cada entreno. Si fallas una semana completa, el conteo se reinicia.'],'La motivación te dura dos semanas. Lo que queda después se llama disciplina, y eso es lo único que funciona.','Completaste 26 semanas seguidas con al menos 3 entrenos cada una.'],
+['Pasar 90 días sin emborracharme.',['En la fiesta pide agua con limón o una bebida sin alcohol.','Cuenta los días en una app o en el calendario.'],'Si necesitas alcohol para pasarla bien, el problema no es la fiesta.','Llevas 90 días seguidos sin pasarte de tragos.'],
+['Hacer un viaje solo con una mochila y ropa deportiva.',['Una caminata de fin de semana a Chingaza, Villa de Leyva o la Laguna de Guatavita.','Lleva solo lo que quepa en la mochila. Nada más.'],'Lo que cabe en una mochila es suficiente para ser feliz.','El viaje ya pasó y volviste con la mochila y la historia.'],
+['Hacer ayuno intermitente 16:8 durante una semana.',['Por ejemplo: comes entre 12 m. y 8 p. m., y el resto del tiempo solo agua o tinto.','Si tienes alguna condición de salud, consúltalo antes con un médico.'],'Conocer tu cuerpo es conocer tu poder. Escúchalo con respeto.','Cumpliste 7 días seguidos con la ventana de 16:8.'],
+['Llegar a mi peso objetivo y mantenerlo 3 meses.',['Define una cifra realista con ayuda de un profesional y escríbela.','Pésate una vez por semana, siempre el mismo día y a la misma hora.'],'Llegar es fácil comparado con mantenerte. Ahí se ve quién cambió de verdad.','Llegaste a tu peso meta y llevas 3 meses en ese rango.']]},
+{id:'mente',name:'Mente',emo:'🧠',goals:[
+['Leer 12 libros en un año.',['Lee 20 páginas al día: así terminas un libro cada 2 o 3 semanas.','Lleva una lista con la fecha en que terminas cada uno.'],'Dices que no tienes tiempo para leer, pero sí tienes tres horas para el celular.','Terminaste 12 libros en 12 meses o menos.'],
+['Pasar un fin de semana completo solo y disfrutarlo.',['Planea un sábado y domingo contigo: caminar, cocinar, leer, ir a cine solo.','Nada de llenar el silencio con llamadas o redes todo el día.'],'Si no soportas tu propia compañía, ¿por qué esperas que otros la disfruten?','Pasaste el fin de semana solo y lo disfrutaste, sin sentirte vacío.'],
+['Meditar 10 minutos diarios durante 30 días.',['Al despertar, antes de mirar el celular.','Siéntate, cierra los ojos y cuenta respiraciones del 1 al 10. Repite.'],'Diez minutos. No tienes excusa.','Tienes 30 días seguidos con tu meditación.'],
+['Cambiar de opinión sobre algo importante después de investigarlo.',['Elige un tema en el que estés muy seguro y lee a alguien que piense lo contrario.','Escribe tus razones de antes y las de ahora.'],'Tener la razón no importa. Encontrar la verdad sí.','Puedes decir: "antes pensaba esto, ahora pienso esto otro, y estas son mis razones".'],
+['Ir mínimo a 5 sesiones de terapia.',['Busca psicólogo por tu EPS o con tarifa social en una universidad.','Lleva anotados los temas que quieres trabajar.'],'Ir a terapia no es de débiles. Cargarlo todo solo tampoco es de fuertes.','Asististe a 5 sesiones.'],
+['Decir "no" sin dar explicaciones al menos 3 veces.',['Practica la frase: "Gracias, pero no puedo."','Anota cada vez que lo hagas y cómo te sentiste.'],'Cada vez que dices sí por miedo, te traicionas un poco.','Lo hiciste 3 veces y lo tienes anotado.'],
+['Pasar 30 días sin explotar de rabia con nadie.',['Cuando sientas la rabia subir, respira 10 segundos antes de hablar.','Si es por mensaje, espera una hora antes de responder.'],'El que te hace enojar te controla. Deja de regalar el control.','Llevas 30 días seguidos sin gritar, insultar ni explotar con nadie.'],
+['Escribir en un diario 30 días seguidos.',['Tres líneas antes de dormir: qué pasó, qué sentí, qué aprendí.','Puede ser una libreta o una nota en el celular.'],'Lo que no escribes, lo olvidas. Y lo que olvidas, lo repites.','Tienes 30 entradas en 30 días seguidos.'],
+['Releer el libro que más me cambió la vida y escribir qué entiendo distinto.',['Subraya con otro color lo que hoy te llama la atención.','Al terminar, escribe una página comparando al tú de antes con el de ahora.'],'El libro es el mismo. El que cambió eres tú.','Lo terminaste de releer y tienes tu página escrita.'],
+['Pasar 7 días sin discutir en redes ni responder provocaciones.',['Si un comentario te calienta, cierra la app y sal a caminar.','Silencia, no respondas.'],'No toda pelea merece tu presencia.','Pasaron 7 días seguidos sin discutir con nadie en redes ni en chats.']]},
+{id:'espiritu',name:'Espiritualidad',emo:'🌿',goals:[
+['Mantener una práctica espiritual diaria durante 60 días.',['10 minutos de oración, meditación o lectura estoica (Marco Aurelio, Séneca).','Siempre a la misma hora, como un ritual.'],'Si no cuidas tu interior, cualquier cosa de afuera te tumba.','Llevas 60 días seguidos con tu práctica.'],
+['Escribirle una carta de perdón a alguien que me hizo daño.',['No tienes que enviarla. Escribe lo que pasó, lo que sentiste y que lo sueltas.','Al final, rómpela o quémala con cuidado si quieres cerrar el ciclo.'],'El rencor es tomar veneno esperando que el otro sufra.','La carta está escrita y sientes que pesa menos.'],
+['Pasar un día entero en la naturaleza sin celular.',['Parque Chicaque, un páramo o una finca. Celular apagado en la maleta.','Lleva agua, comida y una libreta.'],'La naturaleza no tiene prisa y aun así todo lo logra.','Pasaste un día completo afuera sin usar el celular.'],
+['Hacer por escrito la revisión de mi año.',['Responde: ¿qué aprendí?, ¿qué suelto?, ¿qué quiero el próximo año?','Hazlo en diciembre, en un lugar tranquilo.'],'Si no revisas el año que pasó, vas a vivir el mismo año otra vez.','Tienes la revisión escrita de este año.'],
+['Ayudar a alguien sin que nadie se entere.',['Pagar un almuerzo, donar ropa o ayudar con una hoja de vida.','No lo publiques ni se lo cuentes a nadie.'],'Si lo cuentas, ya cobraste.','Lo hiciste y no se lo contaste a nadie.'],
+['Pasar 24 horas en silencio: sin hablar, sin redes, sin pantallas.',['Un sábado o domingo; avísale antes a tu familia.','Camina, escribe, piensa.'],'En el silencio aparece la voz que el ruido te tapaba.','Cumpliste 24 horas en silencio.'],
+['Escribir qué haría si me quedara un año de vida y empezar una de esas cosas.',['Haz la lista sin filtros.','Escoge una y da el primer paso esta misma semana.'],'Memento mori: vas a morir. ¿Qué estás esperando?','La lista está escrita y ya empezaste una de esas cosas.'],
+['Escribir en una página cómo quiero ser recordado.',['Imagina que alguien habla de ti en tu funeral: ¿qué quisieras que dijera?','Revisa si lo que haces hoy va en esa dirección.'],'Tu legado se escribe hoy, no cuando seas viejo.','Tienes esa página escrita.'],
+['Escribir mi historia, lo bueno y lo malo, y leerla sin vergüenza.',['Escribe los momentos que te marcaron, incluso los que duelen.','Léela en voz alta para ti.'],'Tu pasado te formó, pero no te define. Hazte cargo de lo que sigue.','Tu historia está escrita y la leíste completa.'],
+['Agradecer 3 cosas cada noche durante 30 días.',['Escríbelas antes de dormir: pequeñas o grandes.','No repitas la misma dos noches seguidas.'],'El que no agradece lo que tiene, nunca va a tener suficiente.','Tienes 30 noches seguidas con tus 3 agradecimientos.']]},
+{id:'negocio',name:'Negocio',emo:'💼',goals:[
+['Ganar mis primeros $100.000 con algo que no dependa de mi tiempo.',['Un producto digital, una plantilla, un curso o una inversión.','Créalo una vez y véndelo muchas.'],'Si solo ganas cuando trabajas, eres esclavo de tu propio reloj.','Recibiste $100.000 de algo que ya no requiere tus horas.'],
+['Tener un pitch de 30 segundos sobre mí y usarlo en la vida real.',['Quién eres, qué haces y qué valor aportas. Practícalo frente al espejo.','Úsalo en una entrevista, una reunión o un evento.'],'Si tú no sabes venderte, nadie va a comprar lo que no conoce.','Lo usaste en al menos una situación real.'],
+['Delegar una tarea importante sin estar encima.',['Explica bien una sola vez y define la fecha de entrega.','Revisa solo al final.'],'Si todo pasa por ti, el límite de tu negocio eres tú.','Delegaste una tarea importante y salió sin que estuvieras encima.'],
+['Lanzar algo público aunque no esté perfecto.',['Un proyecto, un video, una página, un emprendimiento.','Ponle fecha de lanzamiento y cúmplela.'],'"Perfecto" es la excusa elegante del miedo.','Lo publicaste y ya está a la vista de la gente.'],
+['Cumplir mi rutina de mañana 21 días seguidos.',['Agua, 10 minutos de ejercicio, 10 de lectura y anotar tus 3 prioridades.','Nada de celular la primera media hora.'],'Gana la mañana y ganarás el día. Pierde la mañana y el día te gana a ti.','Llevas 21 días seguidos con tu rutina completa.'],
+['Rechazar un cliente, trabajo o propuesta que no valía la pena.',['Mal pago, mala actitud o mucho desgaste: esas son las señales.','Di que no con respeto y sin justificarte de más.'],'Lo barato sale caro, sobre todo cuando lo que pagas es tu energía.','Rechazaste al menos una oportunidad mala.'],
+['Calcular cuánto vale mi hora y negociar con ese número.',['Divide tu ingreso mensual entre las horas que trabajas en el mes.','Úsalo en tu próxima cotización o aumento.'],'Si no sabes cuánto vales, otros lo van a decidir por ti, y siempre a la baja.','Calculaste el número y lo usaste en una negociación real.'],
+['Recibir mi primer ingreso pasivo.',['Intereses de un CDT, dividendos, un arriendo o ventas automáticas.','Empieza pequeño; lo importante es que llegue solo.'],'El dinero puede trabajar para ti o tú para el dinero. Tú decides.','Te llegó plata sin que trabajaras para ella ese día.'],
+['Tener un fondo de emergencia de 3 meses de gastos.',['Suma tus gastos de un mes y multiplícalos por 3. Esa es tu meta.','Ahorra un porcentaje fijo cada vez que te paguen, en una cuenta aparte.'],'La tranquilidad también se ahorra.','Tienes ahorrados 3 meses de gastos y no los tocas.'],
+['Publicar mi opinión o conocimiento una vez por semana durante 3 meses.',['LinkedIn, Instagram o un blog: sobre lo que sabes o lo que estás aprendiendo.','Escoge un día fijo de publicación.'],'Nadie te va a escuchar si nunca hablas.','Tienes 12 publicaciones en 12 semanas.']]},
+{id:'vida',name:'Vida',emo:'✨',goals:[
+['Viajar solo a otra ciudad.',['Salento, Barichara, Santa Marta o Cartagena.','Planea tú todo: ruta, hospedaje y presupuesto.'],'Viajar solo te enseña que eres tu mejor compañía.','El viaje ya pasó.'],
+['Tener esa conversación incómoda que llevo aplazando.',['Usa la fórmula: "Yo siento… cuando… y necesito…".','Hazlo en persona, con calma y sin atacar.'],'Lo que no dices te enferma por dentro. Dilo.','La conversación ya pasó.'],
+['Ver un amanecer desde una montaña con alguien que me inspire.',['Monserrate, la Piedra de Gacha o el mirador de La Calera.','Invita a alguien que te sume.'],'Hay momentos que no se compran. Este es uno de ellos.','Viste el amanecer y estabas acompañado.'],
+['Alejarme de una relación que me hacía daño y no volver.',['Puede ser pareja, amistad o un grupo.','Cierra con respeto, sin odio, y no mires atrás.'],'Si alguien te apaga, no es tu gente. Punto.','Te alejaste y llevas 3 meses sin volver a esa dinámica.'],
+['Escribirle una carta a mi yo de 40 años y guardarla.',['Qué esperas haber logrado y qué no quieres olvidar.','Guárdala en un sobre cerrado o prográmala en tu correo.'],'Tu yo de 40 años va a ser el resultado de lo que hagas hoy.','La carta está escrita y guardada.'],
+['Dejar de seguir todas las cuentas que me hacen sentir menos.',['Revisa a quién sigues: si te hace compararte, dale a "dejar de seguir".','Sigue cuentas que te enseñen algo.'],'Lo que consumes te consume.','Hiciste la limpieza completa de tus redes.'],
+['Escribir los 3 momentos más duros de mi vida y lo que me enseñó cada uno.',['Escribe sin juzgarte.','Al final, agradécele a esa versión de ti que lo aguantó.'],'Lo que te dolió también te hizo fuerte. No lo desperdicies.','Tienes los 3 momentos escritos, cada uno con su aprendizaje.'],
+['Tener 3 amigos con los que hable de metas, no solo de fiesta.',['Propón un plan distinto: entrenar, emprender o leer juntos.','Únete a un club o comunidad de lo que te apasiona.'],'Muéstrame con quién andas y te diré a dónde vas a llegar.','Tienes 3 amigos con los que hablas de crecer y de tus metas.'],
+['Aprender un hobby hasta un nivel básico real.',['Guitarra: tocar 5 canciones. Baile: bailar en público. Cocina: 5 platos.','Clases o tutoriales, 2 veces por semana.'],'Haz algo solo porque te enciende el alma, no porque dé plata.','Llegaste al nivel básico que te propusiste.'],
+['Escribir mi definición de éxito en una frase y pegarla donde la vea todos los días.',['Que sea tuya, no la de tus papás ni la de Instagram.','Ponla en el espejo o de fondo de pantalla.'],'Si no defines tu éxito, vas a perseguir el de otros toda la vida.','La frase está escrita y pegada a la vista.']]},
+{id:'retos',name:'Retos',emo:'🚀',goals:[
+['Correr 5 km sin parar.',['Plan "de 0 a 5K": alterna 1 minuto trotando y 1 caminando, 3 veces por semana.','Cada semana suma 1 minuto más de trote.'],'Cada kilómetro es una discusión que le ganas a tu mente.','Corriste 5 km seguidos sin caminar.'],
+['Levantar mi propio peso en sentadilla y en press de banca.',['Aprende la técnica con un entrenador antes de subir el peso.','Sube 2,5 kg cada dos semanas y anota tus marcas.'],'La barra no miente: o lo levantas o no. Entrena hasta que lo levantes.','Hiciste una repetición limpia con tu peso corporal en cada ejercicio.'],
+['Tomar 3 meses de clases de defensa personal.',['Boxeo, jiu-jitsu o krav maga.','Dos clases por semana.'],'Saber defenderte te hace caminar distinto, y pelear menos.','Completaste 3 meses de clases.'],
+['Vivir solo al menos 6 meses.',['Haz el presupuesto: arriendo, servicios, mercado y ahorro.','Aprende lo básico: cocinar, lavar y pagar a tiempo.'],'Vivir solo te muestra quién eres cuando nadie te está mirando.','Llevas 6 meses viviendo solo.'],
+['Leer 30 libros que me transformen.',['Arma tu lista: hábitos, finanzas, filosofía y biografías.','Anota la fecha en que terminas cada uno.'],'Treinta libros te dan treinta mentes nuevas. Tú escoges si las quieres.','Tienes 30 libros terminados en tu lista.'],
+['Mantener una conversación de 15 minutos en otro idioma.',['15 minutos diarios en una app más series con subtítulos en ese idioma.','Busca un intercambio de idiomas o un profesor.'],'Equivocarte en voz alta es el precio de aprender. Págalo.','Hablaste 15 minutos seguidos con alguien en otro idioma.'],
+['Hacer mi primera inversión.',['Empieza con un CDT, un fondo de inversión o acciones.','Aprende lo básico: riesgo, plazo y rentabilidad.'],'El miedo cuesta más que el riesgo.','Tu dinero ya está invertido.'],
+['Viajar solo a otro país.',['Empieza cerca: Perú, Ecuador o México.','Abre un ahorro mensual solo para ese viaje.'],'El mundo es grande y tú eres capaz. Saca ese pasaporte.','Fuiste y volviste.'],
+['Hacer en público algo que me daba pena.',['Bailar, cantar, hablar o publicar un video tuyo.','Elige lo que más pena te dé. Ese es.'],'A nadie le importa tanto como crees. Y al que le importa, no paga tus cuentas.','Lo hiciste.'],
+['Llegar a una cifra invertida que me dé orgullo.',['Escribe la cifra exacta, por ejemplo 5 millones.','Automatiza un porcentaje de tu sueldo cada mes.'],'Constancia más paciencia es igual a libertad.','Llegaste a la cifra que escribiste.'],
+['Cocinar 5 recetas saludables sin mirar la receta.',['Pollo con verduras, arroz integral con huevo, ensalada con atún…','Aprende una por semana.'],'El que sabe cocinar para sí mismo sabe cuidarse.','Puedes hacer las 5 de memoria.'],
+['Tomar una decisión importante sin pedirle permiso a nadie.',['Pide consejo si quieres, pero la última palabra es tuya.','Asume el resultado, salga como salga.'],'Tu vida, tu firma. No esperes que otro la firme por ti.','Tomaste la decisión y la sostuviste.'],
+['Lograr algo importante y no presumirlo por 30 días.',['Celébralo en privado.','Deja que, si se nota, se note solo.'],'Al que hace ruido se le escucha. Al que obtiene resultados se le respeta.','Pasaron 30 días sin que lo publicaras ni lo presumieras.'],
+['Corregir mi postura con 30 días de ejercicios de espalda.',['10 minutos diarios: remo, planchas y estiramientos de pecho.','Pon una alarma cada 2 horas: hombros atrás.'],'Tu postura habla antes que tú. Que diga algo bueno.','Completaste 30 días de ejercicios.'],
+['Recuperarme de una lesión o un golpe emocional sin hacerme la víctima.',['Cambia "¿por qué a mí?" por "¿qué hago ahora?".','Celebra cada pequeño avance.'],'Nadie te debe nada. Levántate.','Te recuperaste y puedes contarlo sin culpar a nadie.'],
+['Hablar frente a 20 personas o más.',['Una presentación del trabajo, un brindis o una exposición.','Grábate practicando antes.'],'Los nervios son energía. Úsalos.','Hablaste frente a 20 personas o más.'],
+['Tener un perfil profesional con 20 publicaciones de valor.',['Define 3 temas en los que quieres ser referente.','Una publicación por semana.'],'Si no construyes tu nombre, otros lo van a definir por ti.','Tienes 20 publicaciones de valor en tu perfil.'],
+['Empezar el proyecto que me da miedo y trabajarle 30 días.',['Escribe el primer paso y hazlo hoy.','30 minutos diarios durante un mes.'],'Si te da miedo, es porque importa.','Llevas 30 días trabajándole.'],
+['Terminar 3 cosas que dejé a medias.',['Haz la lista de todo lo que tienes empezado.','Termina o cierra conscientemente 3 de esas cosas.'],'Empezar es fácil. Terminar es lo que te separa del resto.','Tres pendientes ya están terminados o cerrados.'],
+['Salir a caminar temprano sin celular 20 días en un mes.',['20 minutos al amanecer.','El celular se queda en casa.'],'Una mañana sin pantallas te devuelve la claridad.','Caminaste 20 días en un mismo mes.'],
+['Escribir mi mayor error, perdonarme y no repetirlo en 6 meses.',['Escribe qué pasó, qué aprendiste y qué harás distinto.','Háblate como le hablarías a tu mejor amigo.'],'Equivocarte una vez es aprender. Dos veces es decidir.','Pasaron 6 meses sin repetirlo.'],
+['Dejar un mal hábito durante 90 días seguidos.',['Identifica qué lo dispara y reemplázalo por algo sano.','Marca en el calendario cada día que lo logres.'],'No es falta de fuerza de voluntad. Es que todavía no lo has decidido en serio.','Llevas 90 días seguidos sin ese hábito.'],
+['Llamar o visitar a un familiar cada semana durante 2 meses.',['Solo para preguntar cómo está y apoyar, no para pedir nada.','Ponte un día fijo.'],'Criticar es fácil. Apoyar es de grandes.','Completaste 8 semanas seguidas.'],
+['Hacer algo que mis padres nunca se atrevieron a hacer.',['Un deporte extremo, un viaje lejano o emprender.','Que te saque de lo "seguro", siempre con responsabilidad.'],'Honra a tus padres llegando más lejos de lo que ellos imaginaron.','Ya lo hiciste.'],
+['Que alguien me diga que lo inspiré a cambiar algo.',['Cumple tu palabra siempre.','Comparte lo que aprendes sin predicar.'],'No digas quién eres. Demuéstralo, y otros te van a seguir.','Alguien te lo dijo directamente.']]},
+{id:'domina',name:'Domina',emo:'👑',goals:[
+['Habla como un abogado: defender una idea con argumentos sin perder la calma.',['En una reunión o discusión, presenta tu idea, tu argumento y tu evidencia.','Escucha al otro completo antes de responder.'],'Gana el que argumenta mejor, no el que grita más.','Defendiste una idea con argumentos y mantuviste la calma.'],
+['Exprésate como un filósofo: explicar con mis palabras 5 ideas de los estoicos.',['Lee a Séneca, Marco Aurelio o Epicteto.','Escribe cada idea como si se la explicaras a un amigo.'],'Leer sin aplicar es entretenimiento, no filosofía.','Tienes escritas 5 ideas con tus propias palabras.'],
+['Piensa como un científico: hacer un experimento personal de 30 días y medirlo.',['Por ejemplo: levantarte a las 5 a. m. o dejar el azúcar.','Anota cómo te sentías antes, durante y después.'],'Deja de opinar sobre tu vida. Pruébala y mide.','Completaste los 30 días y anotaste los resultados.'],
+['Analiza como un psicólogo: identificar mis 3 detonantes emocionales.',['¿Qué te pone ansioso, qué te enoja y qué te hace sentir menos?','Escribe al lado de cada uno cómo vas a responder la próxima vez.'],'Si no conoces tus botones, cualquiera los va a presionar.','Tienes los 3 detonantes escritos, cada uno con su plan.'],
+['Observa como un detective: leer sobre lenguaje corporal y aplicarlo en 5 conversaciones.',['Fíjate en los brazos, la mirada y hacia dónde apuntan los pies.','Anota lo que descubriste en cada conversación.'],'Los detalles que otros ignoran son tu ventaja.','Leíste sobre el tema y lo aplicaste en 5 conversaciones.'],
+['Ama como un poeta: escribir una carta a mano a alguien que amo y entregarla.',['Gracias concretas, recuerdos, lo que nunca le has dicho.','Entrégala en persona.'],'Amar sin decirlo es como no haberlo dicho nunca.','La carta ya está entregada.'],
+['Decide como un juez: tomar una decisión importante con pros, contras y 24 horas de espera.',['Escribe los pros y los contras.','Espera 24 horas antes de decidir.'],'Decide con calma. Ejecuta sin dudar.','Tomaste una decisión importante siguiendo ese proceso.'],
+['Crea como un artista: terminar una obra propia y mostrarla.',['Una canción, un dibujo, un texto o un video.','Muéstrasela al menos a 3 personas.'],'El mundo no necesita tu idea. Necesita tu obra terminada.','Tu obra está terminada y la mostraste.'],
+['Trabaja como un ingeniero: convertir una meta grande en un plan con fechas y cumplir el primer mes.',['Divide la meta en pasos pequeños, cada uno con su fecha.','Revisa el plan cada domingo.'],'Un sueño sin plan es solo un deseo.','Tienes el plan escrito y cumpliste todo lo del primer mes.']]}
+];
+const D='rgba(11,37,69,';
+const SCN={
+andes:'<path d="M0 150V88L50 50 90 84 140 30 190 80 230 55 280 94 330 40 400 84V150Z" fill="'+D+'.45)"/><path d="M140 30 128 46 137 42 143 49 152 43Z M330 40 320 53 328 50 334 56 341 51Z" fill="#fff" opacity=".85"/><path d="M0 150V114L60 96 120 120 190 100 260 124 330 104 400 120V150Z" fill="'+D+'.88)"/><path d="M290 52q6-6 12 0q6-6 12 0M250 64q4-4 8 0q4-4 8 0" stroke="'+D+'.7)" stroke-width="2" fill="none"/>',
+kyoto:'<path d="M0 150V104Q100 80 200 100T400 94V150Z" fill="'+D+'.4)"/><g fill="'+D+'.9)"><rect x="262" y="118" width="36" height="32"/><path d="M246 120H314L300 110H260Z"/><rect x="267" y="96" width="26" height="14"/><path d="M250 98H310L297 88H263Z"/><rect x="271" y="74" width="18" height="14"/><path d="M254 76H306L293 66H267Z"/><rect x="278.5" y="40" width="3" height="26"/><rect x="74" y="98" width="7" height="52"/><rect x="119" y="98" width="7" height="52"/><path d="M60 98H140L135 90H65Z"/><rect x="70" y="106" width="60" height="5"/><path d="M0 150V140L400 134V150Z"/></g><g fill="#FFB7C5" opacity=".8"><circle cx="190" cy="118" r="10"/><circle cx="203" cy="112" r="9"/><circle cx="178" cy="112" r="8"/></g><rect x="189" y="120" width="3" height="20" fill="'+D+'.9)"/>',
+himalaya:'<path d="M0 150V100L70 40 120 80 180 18 240 74 300 34 360 80 400 60V150Z" fill="'+D+'.5)"/><path d="M180 18 166 36 176 32 183 40 194 33Z M300 34 289 48 297 45 303 51 311 46Z M70 40 61 52 69 50 75 55 80 49Z" fill="#fff" opacity=".9"/><path d="M10 112Q120 88 230 112" stroke="'+D+'.8)" stroke-width="1.5" fill="none"/><g><rect x="40" y="103" width="9" height="11" fill="#E8505B"/><rect x="70" y="98" width="9" height="11" fill="#F9C74F"/><rect x="100" y="95" width="9" height="11" fill="#1B998B"/><rect x="130" y="95" width="9" height="11" fill="#fff"/><rect x="160" y="97" width="9" height="11" fill="#1E5AA8"/><rect x="190" y="102" width="9" height="11" fill="#E8505B"/></g><path d="M0 150V126L400 118V150Z" fill="'+D+'.9)"/>',
+city:(function(){let s='<g fill="'+D+'.9)">',x=0,w=[22,30,18,26,34,20,28,16,30,24,36,20,26,22,28,20],h=[60,80,45,95,70,55,120,50,85,65,100,58,75,48,90,62];w.forEach((ww,i)=>{s+='<rect x="'+x+'" y="'+(150-h[i])+'" width="'+ww+'" height="'+h[i]+'"/>';x+=ww+2});s+='<rect x="176" y="10" width="4" height="22"/><path d="M168 32h20v4h-20z"/></g><g fill="#FFD08A" opacity=".85">';for(let i=0;i<60;i++){const xx=(i*37)%396,yy=60+((i*53)%80);s+='<rect x="'+xx+'" y="'+yy+'" width="3" height="4"/>'}return s+'</g>';})(),
+santorini:'<rect x="0" y="118" width="400" height="32" fill="#ffffff33"/><path d="M200 128q10-4 20 0t20 0M260 138q10-4 20 0t20 0M40 140q10-4 20 0t20 0" stroke="#fff" stroke-width="1.5" fill="none" opacity=".7"/><path d="M0 150V92L120 84 200 100 200 150Z" fill="'+D+'.85)"/><g fill="#fff"><rect x="18" y="70" width="40" height="18"/><rect x="62" y="74" width="30" height="14"/><rect x="128" y="78" width="32" height="16"/><rect x="98" y="80" width="26" height="12"/></g><circle cx="111" cy="80" r="12" fill="#1E5AA8"/><rect x="110" y="62" width="2" height="8" fill="#fff"/><path d="M300 66V114H268Z" fill="#fff" opacity=".95"/><path d="M304 74V114H326Z" fill="#fff" opacity=".8"/><path d="M262 116H330L320 126H272Z" fill="'+D+'.9)"/>',
+desert:'<path d="M0 150V110Q80 82 160 104T320 98 400 94V150Z" fill="'+D+'.35)"/><path d="M210 120 262 64 314 120Z" fill="'+D+'.6)"/><path d="M262 64 314 120 262 120Z" fill="'+D+'.75)"/><path d="M296 120 330 86 364 120Z" fill="'+D+'.6)"/><path d="M0 150V130Q120 108 240 128T400 124V150Z" fill="'+D+'.9)"/><path d="M60 128v-14h-6l2-10h10l6-10 6 8 6-8 6 8h8l6-10h6l-2 8-6 14v14h-4v-12h-22v12h-4v-12h-4v12z" fill="'+D+'.95)"/>',
+athens:'<path d="M0 150V120Q200 94 400 118V150Z" fill="'+D+'.85)"/><g fill="#fff" opacity=".92"><rect x="120" y="108" width="160" height="8"/><rect x="128" y="100" width="144" height="8"/><rect x="130" y="62" width="140" height="8"/><path d="M126 62H274L200 36Z"/><rect x="140" y="70" width="10" height="30"/><rect x="164" y="70" width="10" height="30"/><rect x="188" y="70" width="10" height="30"/><rect x="212" y="70" width="10" height="30"/><rect x="236" y="70" width="10" height="30"/><rect x="250" y="70" width="10" height="30"/></g><path d="M330 120c0-30 6-46 0-60M330 80q14-6 22 2M330 92q-14-6-22 2M330 70q10-10 18-6" stroke="'+D+'.9)" stroke-width="3" fill="none"/>'};
+function scene(k){return '<svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMax slice">'+SCN[k]+'</svg>';}
+const DEST={
+cuerpo:{n:'DESTINO 1',place:'Los Andes',ic:'⛰️',sky:['#2E6E8E','#F2A65A'],scene:'andes',story:'Todo gran viaje empieza con piernas fuertes. En la cordillera entrenas tu cuerpo, tu salud y tu disciplina.',q:['La dificultad fortalece la mente, como el trabajo fortalece el cuerpo.','Séneca']},
+mente:{n:'DESTINO 2',place:'Kioto',ic:'⛩️',sky:['#5B3F8C','#E8836B'],scene:'kyoto',story:'Entre templos y jardines de piedra aprendes el arte de la calma, el foco y el pensamiento claro.',q:['No son las cosas las que nos perturban, sino lo que opinamos de ellas.','Epicteto']},
+espiritu:{n:'DESTINO 3',place:'Himalaya',ic:'🏔️',sky:['#1B4F72','#9CC9E3'],scene:'himalaya',story:'En el techo del mundo el silencio enseña: perdón, gratitud y conexión con algo más grande.',q:['Muy poco se necesita para tener una vida feliz: todo está dentro de ti, en tu manera de pensar.','Marco Aurelio']},
+negocio:{n:'DESTINO 4',place:'Nueva York',ic:'🏙️',sky:['#0B2545','#F28C38'],scene:'city',story:'La ciudad que nunca duerme te enseña a crear valor, cobrar lo justo y hacer oír tu voz.',q:['La riqueza no está en tener grandes posesiones, sino en tener pocas necesidades.','Epicteto']},
+vida:{n:'DESTINO 5',place:'Santorini',ic:'🌅',sky:['#1B98E0','#FBC490'],scene:'santorini',story:'Frente al mar Egeo, la vida se vuelve experiencias, personas y atardeceres que no se olvidan.',q:['No es que tengamos poco tiempo, es que perdemos mucho.','Séneca']},
+retos:{n:'DESTINO 6',place:'Sahara',ic:'🐪',sky:['#C8501A','#F9C74F'],scene:'desert',story:'El desierto pone a prueba a todo viajero: retos concretos que se miden en sudor, valentía y constancia.',q:['Lo que se interpone en el camino se convierte en el camino.','Marco Aurelio']},
+domina:{n:'DESTINO FINAL',place:'Atenas',ic:'🏛️',sky:['#14514A','#E9C46A'],scene:'athens',story:'Regresas a la cuna de la filosofía, donde nació el estoicismo, para dominar las habilidades del sabio.',q:['Primero decide quién quieres ser; después haz lo que tengas que hacer.','Epicteto']}};
+CATS.forEach(c=>{const m=DEST[c.id];c.m=m;c.color=m.sky[0];c.grad='linear-gradient(160deg,'+m.sky[0]+','+m.sky[1]+')';});
+const STOIC=[['Ningún viento es favorable para quien no sabe a qué puerto se dirige.','Séneca'],['Debes cambiar de alma, no de cielo.','Séneca'],['No actúes como si fueras a vivir diez mil años.','Marco Aurelio'],['La felicidad de tu vida depende de la calidad de tus pensamientos.','Marco Aurelio'],['No pierdas más tiempo discutiendo cómo debe ser un buen hombre: sé uno.','Marco Aurelio'],['Tienes poder sobre tu mente, no sobre lo que pasa afuera. Entiéndelo y encontrarás la fuerza.','Marco Aurelio'],['Sufrimos más en la imaginación que en la realidad.','Séneca'],['Comienza ya a vivir, y cuenta cada día como una vida aparte.','Séneca'],['Nadie es libre si no es dueño de sí mismo.','Epicteto'],['Es imposible aprender lo que uno cree que ya sabe.','Epicteto'],['Mientras enseñamos, aprendemos.','Séneca'],['La mejor venganza es no parecerte a quien te hizo daño.','Marco Aurelio'],['Las circunstancias no hacen al hombre: lo revelan.','Epicteto'],['Lo que se interpone en el camino se convierte en el camino.','Marco Aurelio'],['La dificultad fortalece la mente, como el trabajo fortalece el cuerpo.','Séneca'],['Primero decide quién quieres ser; después haz lo que tengas que hacer.','Epicteto'],['No son las cosas las que nos perturban, sino lo que opinamos de ellas.','Epicteto'],['Recuerda que vas a morir: vive hoy con intención. Memento mori.','Máxima estoica']];
+const CALM=['Respira. Un sello más en tu pasaporte. El viaje sigue, sin prisa.','Lo hiciste en silencio y con constancia, como los sabios.','No celebres con ruido: siéntelo con calma. Te lo ganaste.','Paso a paso, el mundo se hace tuyo.','Hoy fuiste dueño de ti mismo. Esa es la verdadera libertad.'];
+const RANKS=[[0,'SOÑADOR'],[5,'MOCHILERO'],[15,'EXPLORADOR'],[30,'VIAJERO'],[45,'TROTAMUNDOS'],[60,'NÓMADA'],[75,'CIUDADANO DEL MUNDO'],[84,'SABIO VIAJERO']];
+const ALL=[];CATS.forEach(c=>c.goals.forEach((g,i)=>{const id=c.id+'-'+(i+1);const n=ALL.length+1;ALL.push({id,n:c.id==='domina'?'D'+(i+1):n,t:g[0],ex:g[1],coach:g[2],crit:g[3]||'',cat:c});}));
+const BY={};ALL.forEach(g=>BY[g.id]=g);
+let S;try{S=JSON.parse(document.getElementById('state').textContent)}catch(e){S={done:{},updatedAt:0,last:null}}
+try{const L=JSON.parse(localStorage.getItem('vidaCheck')||'null');if(L&&L.updatedAt>(S.updatedAt||0))S=L;}catch(e){}
+S.done=S.done||{};S.hero=S.hero||{};S.hero.name=S.hero.name||'';S.hero.dream=S.hero.dream||'';
+let ART=null;
+try{if(window.claude&&claude.use){claude.use('artifact').then(a=>{ART=a}).catch(()=>{})}}catch(e){}
+let view='inicio',cat='cuerpo',openId=null;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const day=()=>Math.floor((Date.now()-5*36e5)/864e5);
+const pick=(a,k)=>a[((k%a.length)+a.length)%a.length];
+const hash=s=>{let h=0;for(const ch of s)h=(h*31+ch.charCodeAt(0))|0;return Math.abs(h);};
+const PLANE='<svg width="46" height="24" viewBox="0 0 46 24"><path d="M2 12 22 8 30 2 33 3 29 9 44 7 46 9 30 13 22 22 19 21 23 13 8 14 4 18 2 17 4 13Z" fill="#fff"/></svg>';
+function fmt(iso,t){const d=new Date(iso);let s=d.toLocaleDateString('es-CO',{day:'numeric',month:'short',year:'numeric'});if(t)s+=' · '+d.toLocaleTimeString('es-CO',{hour:'numeric',minute:'2-digit'});return s;}
+function sdate(iso){const d=new Date(iso);return (d.getDate()+' '+d.toLocaleDateString('es-CO',{month:'short'}).replace('.','')+' '+d.getFullYear()).toUpperCase();}
+function doneList(){return Object.keys(S.done).filter(id=>BY[id]).map(id=>({g:BY[id],at:S.done[id].at,note:S.done[id].note||''})).sort((a,b)=>b.at.localeCompare(a.at));}
+function stat(c){const gs=ALL.filter(g=>g.cat===c);const d=gs.filter(g=>S.done[g.id]).length;return {d,t:gs.length,full:d===gs.length};}
+function rank(n){let r=RANKS[0];RANKS.forEach(x=>{if(n>=x[0])r=x});const nx=RANKS.find(x=>x[0]>n);return {r:r[1],next:nx};}
+function hello(){const h=new Date().getHours();return h<5?'Viajero nocturno 🌙':h<12?'Buenos días, viajero ☀️':h<19?'Buenas tardes, viajero 🌤️':'Buenas noches, viajero 🌙';}
+function render(){$('#app').innerHTML=(view==='inicio'?vInicio():view==='metas'?vMetas():vReporte())+nav();bind();}
+function nav(){const b=(k,i,l)=>'<button data-nav="'+k+'" class="'+(view===k?'on':'')+'"><span>'+i+'</span>'+l+'</button>';return '<nav>'+b('inicio','🧭','Mi viaje')+b('metas','🗺️','Destinos')+b('reporte','📔','Bitácora')+'</nav>';}
+function routeSvg(){let pts=CATS.map((c,i)=>{const x=18+i*44,y=44-Math.sin(i/6*Math.PI)*26;return [x,y,c]});let d='M'+pts.map(p=>p[0]+' '+p[1]).join(' L');let s='<svg viewBox="0 0 300 60"><path d="'+d+'" stroke="#F6EAD4" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>';
+pts.forEach(p=>{const st=stat(p[2]);const fill=st.full?'#FFD08A':st.d?'#F28C38':'#0B2545';s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="7" fill="'+fill+'" stroke="#F6EAD4" stroke-width="1.5"/>'+(st.full?'<path d="M'+(p[0]-3)+' '+p[1]+' l2 2.5 l4 -5" stroke="#0B2545" stroke-width="1.8" fill="none"/>':'')});return s+'</svg>';}
+function vInicio(){const L=doneList(),tot=ALL.length,R=rank(L.length);
+let h='<div class="sky"><div class="stars"></div><div class="sunc"></div><div class="plane">'+PLANE+'</div><div class="hd"><div class="hi">'+hello()+'</div><h1>Mi vida,<br><em>mi viaje por el mundo</em></h1></div><svg class="land" viewBox="0 0 400 150" preserveAspectRatio="xMidYMax slice">'+SCN.andes+'</svg></div>';
+h+='<div class="pass"><div class="top"><span>PASAPORTE DE VIDA</span><button class="ed" data-hero="1">✏️ Editar</button></div><div class="nm">'+esc(S.hero.name||'Tu nombre, viajero')+'</div><div class="dr">✈️ Sueño conocer: <b>'+esc(S.hero.dream||'toca Editar y escribe tu destino soñado')+'</b></div><span class="rank">'+R.r+'</span>';
+h+='<div class="route">'+routeSvg()+'<div class="lb"><span>'+L.length+' de '+tot+' sellos</span><span>'+(R.next?'Próximo nivel en '+(R.next[0]-L.length):'Nivel máximo')+'</span></div></div></div>';
+const q=pick(STOIC,day());h+='<div class="wrap"><div class="quote"><div class="k">FRASE ESTOICA DEL DÍA</div><p>'+esc(q[0])+'</p><div class="a">— '+q[1]+'</div></div>';
+h+='<h2>Mi ruta<small>7 destinos para conquistar tu vida</small></h2><div class="dest">';
+CATS.forEach(c=>{const s=stat(c);h+='<div class="dc" data-go="'+c.id+'" style="background:'+c.grad+'">'+scene(c.m.scene)+'<div class="tx"><div class="n">'+c.m.n+'</div><div class="p">'+c.m.place+'</div></div>'+(s.full?'<div class="ok">🏅</div>':'')+'<div class="pg">'+s.d+'/'+s.t+' sellos<i><b style="width:'+(s.d/s.t*100)+'%"></b></i></div></div>'});
+h+='</div><h2>Mis sellos<small>Cada objetivo cumplido queda sellado en tu pasaporte</small></h2>';
+if(!L.length)h+='<div class="empty"><div style="font-size:40px">🛂</div><p><b>Tu pasaporte está en blanco… por ahora.</b><br>Cumple tu primer objetivo y recibirás tu primer sello con la fecha.</p><button class="btn sun" data-go="cuerpo">✈️ Empezar en Los Andes</button></div>';
+else{h+='<div class="stamps">';L.slice(0,12).forEach((x,i)=>{const c=x.g.cat,r=(hash(x.g.id)%24)-12;h+='<div class="stp '+(i%3===1?'sq':'')+'" data-st="'+x.g.id+'" style="--r:'+r+'deg;color:'+c.color+';border-color:'+c.color+';animation-delay:'+(i*0.08)+'s"><div><div class="c">'+c.m.place.toUpperCase()+'</div><div class="ic">'+c.m.ic+'</div><div class="d">'+sdate(x.at)+'</div></div></div>'});h+='</div>';
+h+='<h2>Línea del tiempo<small>Tu viaje, capítulo por capítulo</small></h2><div class="log">';L.forEach((x,i)=>{const c=x.g.cat;h+='<div class="li" style="--c:'+c.color+';animation-delay:'+(i*0.06)+'s"><div class="dt">'+sdate(x.at)+' · '+c.m.ic+' '+c.m.place.toUpperCase()+'</div><p>'+esc(x.g.t)+'</p>'+(x.note?'<div class="note">"'+esc(x.note)+'"</div>':'')+'</div>'});h+='</div>';}
+return h+'</div>';}
+function vMetas(){const c=CATS.find(x=>x.id===cat),m=c.m,s=stat(c);const gs=ALL.filter(g=>g.cat===c);
+let h='<div class="chips">';CATS.forEach(x=>{h+='<button class="chip '+(x.id===cat?'on':'')+'" data-cat="'+x.id+'" style="'+(x.id===cat?'background:'+x.color:'')+'">'+(stat(x).full?'🏅 ':x.m.ic+' ')+x.m.place+'</button>'});
+h+='</div><div class="dh" style="background:'+c.grad+'">'+scene(m.scene)+'<div class="tx"><div class="n">'+m.n+' · '+c.name.toUpperCase()+'</div><h3>'+m.place+'</h3><p>'+m.story+'</p></div><div class="bar">'+s.d+' de '+s.t+' sellos<i><b style="width:'+(s.d/s.t*100)+'%"></b></i></div></div>';
+h+='<div class="sq2"><div class="k">EL ESTOICO DE ESTE DESTINO</div><p>"'+esc(m.q[0])+'"</p><div class="a">— '+m.q[1]+'</div></div>';
+gs.forEach(g=>{const dn=S.done[g.id];h+='<div class="g '+(dn?'done ':'')+(openId===g.id?'open':'')+'" data-g="'+g.id+'"><div class="gh" data-tog="'+g.id+'"><div class="num" style="background:'+(dn?'#1B998B':c.grad)+'">'+(dn?'✓':g.n)+'</div><div class="gt">'+esc(g.t)+'</div><div class="chev">▾</div></div><div class="gb"><div class="gi">';
+if(dn)h+='<div class="donebox"><b>🛂 SELLADO · '+fmt(dn.at,true)+'</b>'+(dn.note?'<div class="note">"'+esc(dn.note)+'"</div>':'')+'</div>';
+h+='<div class="crit"><b>✅ LO MARCAS CUANDO</b>'+esc(g.crit)+'</div>';h+='<div class="lbl">ITINERARIO · EJEMPLOS</div><ul class="ex">'+g.ex.map(e=>'<li>'+esc(e)+'</li>').join('')+'</ul><div class="lbl">DIRECTO Y SIN EXCUSAS</div><div class="cq" style="background:'+c.grad+'">"'+esc(g.coach)+'"</div>';
+h+=dn?'<div class="row"><button class="btn gh2" data-note="'+g.id+'">✏️ Editar nota</button><button class="btn gh2" data-undo="'+g.id+'">↩︎ Quitar sello</button></div>':'<button class="btn sun" data-done="'+g.id+'">🛂 ¡Lo logré! Sellar pasaporte</button>';
+h+='</div></div></div>'});return h;}
+function vReporte(){const L=doneList().slice().reverse();
+let h='<div class="wrap" style="padding-top:18px"><h2 style="margin-top:4px">📔 Bitácora de viaje<small>Todo lo que has vivido, en orden</small></h2><div class="card">';
+CATS.forEach(c=>{const s=stat(c);h+='<div class="cb"><div class="lab">'+c.m.ic+' '+c.m.place+'</div><div class="tr"><i style="width:'+(s.d/s.t*100)+'%;background:'+c.grad+'"></i></div><div class="v">'+s.d+'/'+s.t+'</div></div>'});
+h+='</div><h2>Registro</h2>';
+if(!L.length)h+='<div class="empty"><div style="font-size:40px">📔</div><p>Tu bitácora está esperando su primera página. Cada logro quedará aquí con fecha, hora y tus palabras.</p></div>';
+else{L.forEach(x=>{h+='<div class="rep" style="border-left:6px solid '+x.g.cat.color+'"><div class="t">'+fmt(x.at,true)+' · '+x.g.cat.m.place+'</div><div class="q">'+esc(x.g.t)+'</div>'+(x.note?'<div class="note">"'+esc(x.note)+'"</div>':'<div style="font-size:13px;color:var(--soft)">Sin nota</div>')+'</div>'});
+h+='<button class="btn" style="margin-top:6px" data-copy="1">📋 Copiar bitácora</button>';}
+h+='<h2>Copia de seguridad</h2><div class="card" style="font-size:14px;color:#4b5563">Guarda tu progreso en un código y envíatelo por WhatsApp. Si cambias de celular o se borra el navegador, lo restauras aquí.<div class="row" style="margin-top:12px"><button class="btn gh2" data-bk="1">💾 Crear copia</button><button class="btn gh2" data-rs="1">♻️ Restaurar</button></div></div></div>';
+return h;}
+function bind(){
+document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{view=b.dataset.nav;render();scrollTo(0,0)});
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{cat=b.dataset.go;openId=null;view='metas';render();scrollTo(0,0)});
+document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{cat=b.dataset.cat;openId=null;render()});
+document.querySelectorAll('[data-tog]').forEach(b=>b.onclick=()=>{const id=b.dataset.tog;openId=openId===id?null:id;document.querySelectorAll('.g').forEach(e=>e.classList.toggle('open',e.dataset.g===openId))});
+document.querySelectorAll('[data-done]').forEach(b=>b.onclick=()=>complete(b.dataset.done));
+document.querySelectorAll('[data-note]').forEach(b=>b.onclick=()=>editNote(b.dataset.note));
+document.querySelectorAll('[data-undo]').forEach(b=>b.onclick=()=>undo(b.dataset.undo));
+document.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>showStamp(b.dataset.st));
+const hb=$('[data-hero]');if(hb)hb.onclick=editHero;
+const cp=$('[data-copy]');if(cp)cp.onclick=copyRep;
+const bk=$('[data-bk]');if(bk)bk.onclick=()=>{const code='VIDACHECK:'+btoa(unescape(encodeURIComponent(JSON.stringify(S))));try{navigator.clipboard.writeText(code).then(()=>toast('Copia lista: pégala en WhatsApp 💾'),()=>showTxt(code))}catch(e){showTxt(code)}};
+const rs=$('[data-rs]');if(rs)rs.onclick=()=>{const o=sheet('<h3 style="font-family:var(--serif);font-size:24px;margin:0 0 8px">Restaurar progreso</h3><p style="font-size:14px;margin:0 0 8px">Pega aquí el código que empieza con VIDACHECK:</p><textarea id="rc"></textarea><div class="row" style="margin-top:10px"><button class="btn gh2" id="cx">Cancelar</button><button class="btn" id="ok">Restaurar</button></div>');o.querySelector('#cx').onclick=()=>o.remove();o.querySelector('#ok').onclick=()=>{try{const v=o.querySelector('#rc').value.trim().replace(/^VIDACHECK:/,'');const n=JSON.parse(decodeURIComponent(escape(atob(v))));if(!n||!n.done)throw 0;S=n;S.hero=S.hero||{};S.last={at:Date.now(),msg:'Progreso restaurado ♻️'};o.remove();save();}catch(e){toast('Ese código no es válido')}};};}
+function sheet(html){const o=document.createElement('div');o.className='ov';o.innerHTML='<div class="sheet">'+html+'</div>';o.onclick=e=>{if(e.target===o)o.remove()};document.body.appendChild(o);return o;}
+function slam(c,full){const b=document.createElement('div');b.className='slam';b.innerHTML='<div class="big" style="color:'+c.color+';border-color:'+c.color+'"><div><b>'+(full?'COMPLETO':'SELLADO')+'</b><div style="font-size:34px;margin:4px 0">'+c.m.ic+'</div><span>'+c.m.place.toUpperCase()+'</span><span>'+sdate(new Date().toISOString())+'</span></div></div>';document.body.appendChild(b);setTimeout(()=>b.remove(),1750);}
+function complete(id){const g=BY[id],c=g.cat,s=stat(c);const full=s.d+1===s.t;slam(c,full);
+setTimeout(()=>{const q=pick(STOIC,Math.floor(Math.random()*1e4));
+const o=sheet('<div class="calm"><div style="font-size:44px">'+c.m.ic+'</div><h3>'+(full?'¡Destino completado: '+c.m.place+'!':'Sello puesto en '+c.m.place)+'</h3><p>'+pick(CALM,Math.floor(Math.random()*1e4))+'</p><p style="margin-top:12px">"'+esc(q[0])+'"</p><div class="a">— '+q[1]+'</div><div class="breath">INHALA… EXHALA…</div></div><div class="lbl">'+esc(g.t)+'</div><textarea id="nt" placeholder="Escribe en tu bitácora: ¿cómo te sentiste? ¿qué aprendiste? (opcional)"></textarea><div class="row" style="margin-top:12px"><button class="btn gh2" id="cx">Aún no</button><button class="btn sun" id="ok">Guardar en mi bitácora</button></div>');
+o.querySelector('#cx').onclick=()=>o.remove();
+o.querySelector('#ok').onclick=()=>{S.done[id]={at:new Date().toISOString(),note:o.querySelector('#nt').value.trim()};S.last={id,at:Date.now(),msg:full?'🏅 ¡'+c.m.place+' completado!':'🛂 Sello guardado en tu pasaporte'};o.remove();save();};},1300);}
+function showStamp(id){const g=BY[id],d=S.done[id],c=g.cat;const o=sheet('<div class="calm"><div style="font-size:40px">'+c.m.ic+'</div><h3>'+c.m.place+'</h3><div class="lbl" style="text-align:center">'+fmt(d.at,true)+'</div><p style="font-style:normal;font-family:var(--sans);font-weight:700">'+esc(g.t)+'</p>'+(d.note?'<div class="note" style="margin-top:12px">"'+esc(d.note)+'"</div>':'')+'</div><button class="btn gh2" id="cx">Cerrar</button>');o.querySelector('#cx').onclick=()=>o.remove();}
+function editNote(id){const g=BY[id],d=S.done[id];const o=sheet('<h3 style="font-family:var(--serif);font-size:24px;margin:0 0 6px">Tu nota de viaje</h3><div class="lbl">'+esc(g.t)+'</div><textarea id="nt">'+esc(d.note||'')+'</textarea><div class="row" style="margin-top:12px"><button class="btn gh2" id="cx">Cancelar</button><button class="btn sun" id="ok">Guardar</button></div>');
+o.querySelector('#cx').onclick=()=>o.remove();o.querySelector('#ok').onclick=()=>{d.note=o.querySelector('#nt').value.trim();S.last={id,at:Date.now(),msg:'Nota guardada ✍️'};o.remove();save();};}
+function undo(id){const g=BY[id];const o=sheet('<h3 style="font-family:var(--serif);font-size:24px;margin:0 0 6px">¿Quitar este sello?</h3><p>'+esc(g.t)+'<br><span style="color:var(--soft)">Se borrará de tu pasaporte junto con su fecha y tu nota.</span></p><div class="row"><button class="btn gh2" id="cx">No, dejarlo</button><button class="btn" id="ok">Sí, quitar</button></div>');
+o.querySelector('#cx').onclick=()=>o.remove();o.querySelector('#ok').onclick=()=>{delete S.done[id];S.last={id,at:Date.now(),msg:'Sello quitado'};o.remove();save();};}
+function editHero(){const o=sheet('<h3 style="font-family:var(--serif);font-size:24px;margin:0 0 10px">Tu pasaporte</h3><div class="lbl">NOMBRE DEL VIAJERO</div><input id="hn" maxlength="30" placeholder="Ej: Michael Mateo" value="'+esc(S.hero.name)+'"><div class="lbl" style="margin-top:12px">EL LUGAR QUE SUEÑO CONOCER</div><input id="hd" maxlength="50" placeholder="Ej: Japón, Grecia, Islandia…" value="'+esc(S.hero.dream)+'"><div class="row" style="margin-top:14px"><button class="btn gh2" id="cx">Cancelar</button><button class="btn sun" id="ok">Guardar</button></div>');
+o.querySelector('#cx').onclick=()=>o.remove();o.querySelector('#ok').onclick=()=>{S.hero={name:o.querySelector('#hn').value.trim(),dream:o.querySelector('#hd').value.trim()};S.last={at:Date.now(),msg:'Pasaporte actualizado ✈️'};o.remove();save();};}
+function copyRep(){const L=doneList().slice().reverse();let t='MI VIDA EN CHECK — Bitácora de '+(S.hero.name||'viajero')+'\nNivel: '+rank(L.length).r+' · '+L.length+' de '+ALL.length+' sellos\n\n';L.forEach(x=>{t+='🛂 '+fmt(x.at,true)+' ['+x.g.cat.m.place+'] '+x.g.t+(x.note?'\n   "'+x.note+'"':'')+'\n'});
+try{navigator.clipboard.writeText(t).then(()=>toast('Bitácora copiada 📋'),()=>showTxt(t))}catch(e){showTxt(t)}}
+function showTxt(t){const o=sheet('<h3 style="font-family:var(--serif);font-size:24px;margin:0 0 8px">Copia esto</h3><p style="font-size:14px;margin:0 0 8px">Mantén presionado para seleccionar y copiar.</p><textarea style="min-height:260px">'+esc(t)+'</textarea><button class="btn gh2" id="cx" style="margin-top:10px">Cerrar</button>');o.querySelector('#cx').onclick=()=>o.remove();}
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3800);}
+function buildDoc(){const st=JSON.stringify(S).replace(/</g,'\\u003c');
+return '<!DOCTYPE html>\n<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mi Vida en Check</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=DM+Sans:wght@400;500;700&family=Special+Elite&display=swap"><style id="st">'+STYLE+'</style></head><body><div id="app"></div><'+SC+' id="state" type="application/json">'+st+'</'+SC+'><'+SC+' id="app-js">'+APPJS+'</'+SC+'></body></html>';}
+async function save(){S.updatedAt=Date.now();try{localStorage.setItem('vidaCheck',JSON.stringify(S))}catch(e){}
+try{sessionStorage.setItem('vidaView',JSON.stringify({view,cat,openId}))}catch(e){}
+if(ART){const sv=document.createElement('div');sv.className='saving';sv.innerHTML='<div><div class="pl">✈️</div><br>Guardando tu viaje…</div>';document.body.appendChild(sv);
+try{await ART.publish(buildDoc());return;}catch(e){sv.remove();toast('Guardado en este celular 📱');}}
+else toast(S.last&&S.last.msg||'Guardado');
+render();}
+try{const v=JSON.parse(sessionStorage.getItem('vidaView')||'null');if(v){view=v.view||view;cat=v.cat||cat;openId=v.openId||null;sessionStorage.removeItem('vidaView');}}catch(e){}
+render();
+try{if(S.last&&Date.now()-S.last.at<90000){const k='toast'+S.last.at;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,'1');toast(S.last.msg)}}}catch(e){}
+})();
+</script></body></html>
